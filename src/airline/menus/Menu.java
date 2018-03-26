@@ -1,5 +1,9 @@
 package airline.menus;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -25,8 +29,28 @@ public abstract class Menu {
         }
     }
     
+    /**
+     * Checks input line for a date formatted as HH:mm.
+     * If not correct, the method calls itself until the user input is accepted
+     * @return String correctDate
+     */
+    public Date checkForTime(){ //maybe mudar esse método pra aceitar argumento (precisei quase da mesma coisa na classe FlightMenu)
+        DateFormat fmt = new SimpleDateFormat("HH:mm");
+        fmt.setLenient(false);
+        
+        try {
+            String typedTime = input.nextLine();
+            Date correctDate = fmt.parse(typedTime);
+            return correctDate;
+        } catch (ParseException e) {
+//1         + "(this means hours (00-23) and minutes (00-59)!");
+            return checkForTime();
+        }
+    }
+    
     public abstract void optionSelector();
     
+    //perguntar da necessidade desse método
     public void displayMenu(String menu){
         System.out.println(menu);
     }
