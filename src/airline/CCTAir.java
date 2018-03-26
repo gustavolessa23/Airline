@@ -2,7 +2,6 @@ package airline;
 
 import airline.employees.Pilot;
 import airline.aircrafts.Airplane;
-import airline.employees.Rating;
 import airline.menus.MainMenu;
 import airline.mockData.PilotData;
 import airline.mockData.AirplaneData;
@@ -25,9 +24,7 @@ public class CCTAir {
         AirplaneData airplaneData = new AirplaneData(pilots);
         airplanes = airplaneData.generateAirplanes();
 
-        new MainMenu();
-
-       
+        new MainMenu();    
     }
     
 }

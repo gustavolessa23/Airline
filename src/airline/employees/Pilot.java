@@ -20,7 +20,6 @@ public class Pilot extends Employee{
         super(name);
         this.rating = rating;
         this.assigned = false;
-        System.out.println(rating.values());
     }
     
     /**
