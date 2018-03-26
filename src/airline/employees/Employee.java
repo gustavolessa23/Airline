@@ -4,7 +4,7 @@ package airline.employees;
  *
  * @author rbsrafa
  */
-public class Employee {
+public abstract class Employee {
     protected final int id;
     protected static int lastId = 0;
     protected String name;

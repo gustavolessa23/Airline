@@ -1,7 +1,6 @@
 package airline.employees;
 
 /**
- * All Pilots have a name (inherited from Employee) and a rating.
  * 
  * @author rbsrafa
  */
@@ -10,9 +9,7 @@ public class Pilot extends Employee{
     private boolean assigned;
     
     /**
-     * 
-     * Provides a constructor that initialises a new Pilot
-     * 
+     * Constructor that initialises a new Pilot
      * @param name The name of the Pilot
      * @param rating The rating (licence) that the pilot have
      */
@@ -22,10 +19,7 @@ public class Pilot extends Employee{
         this.assigned = false;
     }
     
-    /**
-     * Returns a command line interface that provides the Pilot's detail
-     * @return 
-     */
+    
     @Override
     public String toString(){
         return
@@ -42,8 +36,6 @@ public class Pilot extends Employee{
     public Enum getRating() {
         return rating;
     }
-    
-   
 
     public void setRating(Rating rating) {
         this.rating = rating;

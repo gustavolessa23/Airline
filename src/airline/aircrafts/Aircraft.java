@@ -22,10 +22,10 @@ public abstract class Aircraft {
     /**
      * Aircraft constructor receives the arguments
      * and sets the following parameters
-     * @param id
      * @param make
      * @param model
-     * @param capacity 
+     * @param capacity
+     * @param pilot 
      */
     public Aircraft(String make, String model, int capacity, Pilot pilot) {
         this.id = ++lastId;
