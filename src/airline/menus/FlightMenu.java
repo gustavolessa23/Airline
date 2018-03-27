@@ -145,7 +145,7 @@ public class FlightMenu extends Menu{
                 System.out.println("\nFlight "+flights.get(flightPosition).getId()+
                     " arrival time updated to "+flights.get(flightPosition).getArrivalTime());
             } else {
-                System.out.println("The arrival time should be after the departure"
+                System.out.println("The arrival time should be after the departure "
                     + "time.");
                 setFlightArrivalTime(flightPosition);
             }
