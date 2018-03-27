@@ -7,7 +7,19 @@
             <file>file:/home/rbsrafa/NetBeansProjects/Airline/src/airline/employees/Employee.java</file>
         </group>
         <group>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/menus/MainMenu.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/menus/AirplaneMenu.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/CCTAir.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/menus/PilotMenu.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/mockData/AirplaneData.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/menus/Menu.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/menus/FlightMenu.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/mockData/PilotData.java</file>
             <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/flights/Flight.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/aircrafts/Aircraft.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/employees/Pilot.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/aircrafts/Airplane.java</file>
+            <file>file:/Users/gustavolessa1/Dropbox/CCT/Semester%204/Workspace_Sem4/Airline/src/airline/mockData/FlightData.java</file>
         </group>
     </open-files>
 </project-private>

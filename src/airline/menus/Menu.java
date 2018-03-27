@@ -55,7 +55,16 @@ public abstract class Menu {
         System.out.println(menu);
     }
     
+    public void displayMenu(Menu menu){
+        System.out.println(menu);
+    }
+    
     public void exitProgram(){
         System.exit(0);
     }
+    
+    public void returnToMainMenu(){
+        new MainMenu();
+    }
+    
 }

@@ -24,7 +24,7 @@ public class FlightMenu extends Menu{
     public FlightMenu(){
         flights = CCTAir.flights;
         while(!exit){
-            this.displayMenu(this.toString());
+            this.displayMenu(this);
             this.optionSelector();
         }
     }
@@ -46,7 +46,7 @@ public class FlightMenu extends Menu{
                 this.setFlightTimes(printChooseFlightId());
                 break;
             case 5:
-                new MainMenu();
+                returnToMainMenu();
                 break;
                       
             case 6:
