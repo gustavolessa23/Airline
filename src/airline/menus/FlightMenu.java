@@ -24,33 +24,32 @@ public class FlightMenu extends Menu{
     public FlightMenu(){
         flights = CCTAir.flights;
         while(!exit){
-            this.displayMenu(this.toString());
-            this.optionSelector();
+            displayMenu(this);
+            optionSelector();
         }
     }
 
     @Override
     public void optionSelector() {
-        int option = this.checkForInt();
+        int option = checkForInt();
         switch (option) {
             case 1:
-                this.displayFlights();
+                displayFlights();
                 break;
             case 2:
-                this.displayFlightInfo(printChooseFlightId());
+                displayFlightInfo(printChooseFlightId());
                 break;
             case 3:
-                this.setFlightArrivalTime(printChooseFlightId());
+                setFlightArrivalTime(printChooseFlightId());
                 break;
             case 4:
-                this.setFlightTimes(printChooseFlightId());
+                setFlightTimes(printChooseFlightId());
                 break;
             case 5:
-                new MainMenu();
-                break;
-                      
+                returnToMainMenu();
+                break;         
             case 6:
-                this.exitProgram();
+                exitProgram();
                 break;
             default:
                 System.out.println("\n*** Invalid option. Please try again ***\n");
