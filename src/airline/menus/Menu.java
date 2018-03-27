@@ -10,6 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author rbsrafa
+ * @author gustavolessadublin
  */
 public abstract class Menu {
     protected Scanner input;

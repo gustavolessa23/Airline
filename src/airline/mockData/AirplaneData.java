@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *
- * @author lucivalsn
+ *@author lucivalsn
+ * 
+ * Stores mock data to generate a list of Airplane objects
  */
 public class AirplaneData {
     private ArrayList<Airplane> airplanes;
@@ -18,9 +19,9 @@ public class AirplaneData {
     }
     
     /**
-     * Generates a random list of airplanes from the 
-     * provided list details
-     * @return airplanes
+     * Generates list of Airplanes and set the attributes of
+     * each object with random data provided from the pre set lists
+     * @return A list of Airplane objects
      */
     public ArrayList<Airplane> generateAirplanes(){
         ArrayList<Airplane> airplanes = new ArrayList<>();
