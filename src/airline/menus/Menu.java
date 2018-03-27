@@ -28,6 +28,67 @@ public abstract class Menu {
             return -1;
         }
     }
+ 
+    public boolean checkForYes(){
+        String answer = "";
+        try{
+            while(answer.isEmpty()){
+                answer = input.nextLine();
+            }
+            if(answer.startsWith("y") || answer.startsWith("Y")){
+                return true;
+            } else {
+                return false;
+            }
+            } catch(InputMismatchException e){
+            System.out.println("\n*** Input is not a integer. Please try again. ***\n");
+            return checkForYes();
+        }
+    }
+    
+    public String checkForString(){
+        String answer = "";
+        try{
+            while(answer.isEmpty()){
+                answer = input.nextLine();
+            }
+            return answer;
+            } catch(InputMismatchException e){
+            System.out.println("\n*** Input is not valid. Please try again. ***\n");
+            return checkForString();
+        }
+    }
+    
+    public int checkForInt(int lowerBondary, int upperBondary){
+        int typedInt = 0;
+        try{
+            typedInt = input.nextInt();
+            if(typedInt>=lowerBondary && typedInt<=upperBondary){
+                return typedInt;
+            }else{
+                System.out.println("\n*** The option should be and integer between "+
+                        lowerBondary+" and "+upperBondary+". ***\n");
+                return checkForInt(lowerBondary,upperBondary);
+            }
+        } catch(InputMismatchException e){
+            System.out.println("\n*** Input is not an integer. Please try again. ***\n");
+            return checkForInt(lowerBondary,upperBondary);
+        }
+    }
+    
+    public Date checkForDate(){ //maybe mudar esse método pra aceitar argumento (precisei quase da mesma coisa na classe FlightMenu)
+        DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        fmt.setLenient(false);
+        
+        try {
+            String typedDate = input.nextLine();
+            Date correctDate = fmt.parse(typedDate);
+            return correctDate;
+        } catch (ParseException e) {
+            System.out.println("Date format should be DD/MM/YYYY. Try again.");
+            return checkForDate();
+        }
+    }
     
     /**
      * Checks input line for a date formatted as HH:mm.

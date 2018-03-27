@@ -51,6 +51,7 @@ public class Flight {
                "| Flight Info                   |\n"+
                "+-------------------------------+\n"+
                " ID: "+this.id+"\n"+ 
+               " Date: "+this.dateOfFlight+"\n"+                 
                " From: "+this.origin+" to "+this.destination+"\n"+ 
                " Flight Time: "+this.departureTime+" to "+this.arrivalTime+"\n"+
                "+-------------------------------+\n"+

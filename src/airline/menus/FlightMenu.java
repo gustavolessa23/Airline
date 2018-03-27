@@ -6,6 +6,8 @@
 package airline.menus;
 
 import airline.CCTAir;
+import airline.aircrafts.Aircraft;
+import airline.aircrafts.Airplane;
 import airline.flights.Flight;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -19,10 +21,14 @@ import java.util.Date;
  */
 public class FlightMenu extends Menu{
     ArrayList<Flight> flights;
-    DateFormat fmt = new SimpleDateFormat("HH:mm");
+    ArrayList<Airplane> airplanes; //use aircraft??
+    DateFormat formatTime = new SimpleDateFormat("HH:mm");
+    DateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+    
     
     public FlightMenu(){
         flights = CCTAir.flights;
+        airplanes = CCTAir.airplanes;
         while(!exit){
             displayMenu(this);
             optionSelector();
@@ -40,15 +46,18 @@ public class FlightMenu extends Menu{
                 displayFlightInfo(printChooseFlightId());
                 break;
             case 3:
-                setFlightArrivalTime(printChooseFlightId());
+                addFlight();
                 break;
             case 4:
-                setFlightTimes(printChooseFlightId());
+                setFlightArrivalTime(printChooseFlightId());
                 break;
             case 5:
+                setFlightTimes(printChooseFlightId());
+                break;
+            case 6:
                 returnToMainMenu();
                 break;         
-            case 6:
+            case 7:
                 exitProgram();
                 break;
             default:
@@ -73,14 +82,15 @@ public class FlightMenu extends Menu{
 //            "| 6 - Exit Program                              |\n" + 
 //            "+-----------------------------------------------+";
             "\n+-----------------------------------------------+\n" +
-            "| Flights Menu                                   |\n" + 
+            "| Flights Menu                                  |\n" + 
             "+-----------------------------------------------+\n" +
             "| 1 - Show flights list                         |\n" +
             "| 2 - Show specific flight info                 |\n" +
-            "| 3 - Update flight arrival time                |\n" +
-            "| 4 - Update flight departure and arrival times |\n" + 
-            "| 5 - Go back to main menu                      |\n" + 
-            "| 6 - Exit Program                              |\n" + 
+            "| 3 - Add a flight                              |\n" +
+            "| 4 - Update flight arrival time                |\n" +
+            "| 5 - Update flight departure and arrival times |\n" + 
+            "| 6 - Go back to main menu                      |\n" + 
+            "| 7 - Exit Program                              |\n" + 
             "+-----------------------------------------------+\n" +
             "Please choose an option: ";
     }
@@ -107,7 +117,7 @@ public class FlightMenu extends Menu{
         Date newArrival = printChooseArrivalTime();
         
         if(newArrival.after(newDeparture)){ //can throw exception instead
-            flights.get(flightPosition).schedule(fmt.format(newArrival),fmt.format(newDeparture));
+            flights.get(flightPosition).schedule(formatTime.format(newArrival),formatTime.format(newDeparture));
             System.out.println("\nFlight "+flights.get(flightPosition).getId()+
                     " schedule updated.");
             System.out.println("Departure: "+flights.get(flightPosition).getDepartureTime());
@@ -122,24 +132,26 @@ public class FlightMenu extends Menu{
     private void setFlightArrivalTime(int flightPosition) {
         Date newArrival = printChooseArrivalTime();
         Date departure = null;
-        
-        try{
-            departure = fmt.parse(flights.get(flightPosition).getDepartureTime());
-        } catch (ParseException e) {
-            System.out.println("Incorrect format, the date should be HH:mm "
-                + "(this means hours (00-23) and minutes (00-59)!");
-        }
-       
-        if(newArrival.after(departure)){
-            flights.get(flightPosition).schedule(fmt.format(newArrival));
-            System.out.println("\nFlight "+flights.get(flightPosition).getId()+
-                " arrival time updated to "+flights.get(flightPosition).getArrivalTime());
-        } else {
-            System.out.println("The arrival time should be after the departure"
-                + "time.");
-            setFlightArrivalTime(flightPosition);
-        }
+        if(!flights.get(flightPosition).getDepartureTime().isEmpty()){
+            try{
+                departure = formatTime.parse(flights.get(flightPosition).getDepartureTime());
+            } catch (ParseException e) {
+                System.out.println("Incorrect format, the date should be HH:mm "
+                    + "(this means hours (00-23) and minutes (00-59)!");
+            }
 
+            if(newArrival.after(departure)){
+                flights.get(flightPosition).schedule(formatTime.format(newArrival));
+                System.out.println("\nFlight "+flights.get(flightPosition).getId()+
+                    " arrival time updated to "+flights.get(flightPosition).getArrivalTime());
+            } else {
+                System.out.println("The arrival time should be after the departure"
+                    + "time.");
+                setFlightArrivalTime(flightPosition);
+            }
+        }else{
+            System.out.println("Please set the departure time first");
+        }
     }
     
     private int printChooseFlightId(){
@@ -147,7 +159,7 @@ public class FlightMenu extends Menu{
         for(Flight f: CCTAir.flights){
             System.out.print(f.getId()+" ");
         }
-        System.out.print("\nPlease choose a Flight ID: ");
+        System.out.print("\nPlease select a Flight ID: ");
         int response = checkForInt();
         return checkFlightIdPosition(response);
     }
@@ -168,6 +180,42 @@ public class FlightMenu extends Menu{
 
     private void displayFlightInfo(int flightPosition) {
         System.out.println(flights.get(flightPosition));
+    }
+
+    private void addFlight() {
+        String origin = "";
+        String destination = "";
+        Date date = null;
+        Aircraft aircraft = null;
+        System.out.println("\nNew flight");
+        System.out.println("\nType the desired origin: ");
+        origin = checkForString();
+        System.out.println("Type the desired destination: ");
+        destination = checkForString();
+        System.out.println("Type the desired date: ");
+        date = checkForDate();
+        aircraft = printChooseAircraft();
+        flights.add(new Flight(origin,destination,formatDate.format(date),aircraft));
+        System.out.println("Flight created");
+        System.out.println(flights.get(flights.size()-1));
+        if(addScheduleOption()){
+            setFlightTimes((flights.size()-1));
+        }
+    }
+    
+    private Airplane printChooseAircraft(){
+        System.out.println("\nAircrafts in the system:");
+        for(int x = 0; x < airplanes.size(); x++){
+            System.out.println((x+1)+" - "+airplanes.get(x).getMake()+" "+airplanes.get(x).getModel());
+        }
+        System.out.print("\nPlease select an option: ");       
+        int option = checkForInt(1, airplanes.size());
+        return airplanes.get(option-1);
+    }
+    
+    private boolean addScheduleOption(){
+        System.out.println("\nWould you like to set schedule information? (Y/N)");
+        return checkForYes();   
     }
    
 }
