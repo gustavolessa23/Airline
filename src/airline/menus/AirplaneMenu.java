@@ -82,7 +82,7 @@ public class AirplaneMenu extends Menu{
      */
     private void displayAirplanes() {
         for(Airplane a: CCTAir.airplanes){
-            System.out.println(a.toString());
+            System.out.println(a);
         }
     }
 
