@@ -8,8 +8,9 @@ package airline.aircrafts;
 import airline.employees.Pilot;
 
 /**
- *
  * @author lucivalsn
+ * 
+ * Create Aircraft object
  */
 public abstract class Aircraft {    
     protected final int id;
@@ -22,10 +23,11 @@ public abstract class Aircraft {
     /**
      * Aircraft constructor receives the arguments
      * and sets the following parameters
+     * @param id
      * @param make
      * @param model
      * @param capacity
-     * @param pilot 
+     * @param pilot
      */
     public Aircraft(String make, String model, int capacity, Pilot pilot) {
         this.id = ++lastId;
@@ -34,40 +36,74 @@ public abstract class Aircraft {
         this.capacity = capacity;
         this.pilot = pilot;
     }
+    /**
+     * Gets Aircraft id value
+     * @return return an int with the Aircraft id value
+     */
+    public int getId() {
+        return id;
+    }
     
     /**
-     * Getter and Setter methods for following parameters
-     * make, model, capacity and pilot
-     * @return make, model, capacity and pilot.name values
+     * Gets Aircraft make value
+     * @return return a String with the Aircraft make value
      */
     public String getMake() {
         return make;
     }
 
+    /**
+     * Receives a String to set Aircraft make variable
+     * @param make(String) 
+     */
     public void setMake(String make) {
         this.make = make;
     }
 
+    /**
+     * Gets Aircraft model value
+     * @return return a String with the Aircraft model value
+     */
     public String getModel() {
         return model;
     }
 
+    /**
+     * Receives a String to set Aircraft model variable
+     * @param model(String)
+     */
     public void setModel(String model) {
         this.model = model;
     }
 
+    /**
+     * Gets Aircraft capacity value
+     * @return return an int with the Aircraft capacity value
+     */
     public int capacity() {
         return capacity;
     }
 
+    /**
+     * Receives an int to set Aircraft capacity variable
+     * @param capacity(int)
+     */
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
+    /**
+     * Gets Aircraft pilot's name value
+     * @return return a String with the Aircraft pilot's name value
+     */
     public String getPilot() {
         return pilot.getName();
     }
 
+    /**
+     * Receives a Pilot object to set Aircraft pilot variable
+     * @param pilot(Pilot)
+     */
     public void assignPilot(Pilot pilot){
         this.pilot = pilot;
     }
