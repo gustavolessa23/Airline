@@ -53,7 +53,7 @@ public class Flight {
                " ID: "+this.id+"\n"+ 
                " Date: "+this.dateOfFlight+"\n"+                 
                " From: "+this.origin+" to "+this.destination+"\n"+ 
-               " Flight Time: "+this.departureTime+" to "+this.arrivalTime+"\n"+
+               " Flight time: "+flightTimes()+"\n"+
                "+-------------------------------+\n"+
                "| Airplane Info                 |\n"+
                "+-------------------------------+\n"+
@@ -88,10 +88,6 @@ public class Flight {
         return dateOfFlight;
     }
 
-    public String getDateOfArrival() {
-        return dateOfArrival;
-    }
-
     public Aircraft getAircraftAssigned() {
         return aircraftAssigned;
     }
@@ -104,14 +100,6 @@ public class Flight {
         this.destination = destination;
     }
 
-//    public void setDepartureTime(String departureTime) {
-//        this.departureTime = departureTime;
-//    }
-//
-//    public void setArrivalTime(String arrivalTime) {
-//        this.arrivalTime = arrivalTime;
-//    }
-
     public void setDateOfFlight(String dateOfFlight) {
         this.dateOfFlight = dateOfFlight;
     }
@@ -120,5 +108,13 @@ public class Flight {
         this.aircraftAssigned = aircraftAssigned;
     }
     
+    public String flightTimes(){
+        if(this.departureTime == null|| this.arrivalTime == null){
+            return "Not specified";
+        } else {
+            return (this.departureTime+" to "+this.arrivalTime);
+        }
+        
+    }
     
 }
