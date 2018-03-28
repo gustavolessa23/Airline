@@ -12,8 +12,7 @@ import airline.data.Data;
 public class MainMenu extends Menu{
     
     /**
-     * This method initialises a new MainMenu instance.
-     * @param data 
+     * @param data This method initialises a new MainMenu instance.
      */
     public MainMenu(Data data){
         super(data); 
@@ -25,8 +24,7 @@ public class MainMenu extends Menu{
     }
     
     /**
-     * This method prints the MainMenu options on CLI.
-     * @return 
+     * @return This method prints the MainMenu options on CLI.
      */
     @Override
     public String toString() {

@@ -18,8 +18,7 @@ public enum Rating {
     }
 
     /**
-     * This method returns the number of passengers allowance according to the rating label.
-     * @return 
+     * @return This method returns the number of passengers allowance according to the rating label.
      */
     public int getPassengers(){
         return this.passengers;

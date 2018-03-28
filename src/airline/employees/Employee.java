@@ -11,7 +11,7 @@ public abstract class Employee {
     
     /**
      * This constructor initialises a new Employee object.
-     * @param name 
+     * @param name The name of the Employee.
      */
     public Employee(String name){
         this.id = ++lastId;
@@ -19,24 +19,21 @@ public abstract class Employee {
     }
 
     /**
-     * This method returns the Employee's id field.
-     * @return 
+     * @return This method returns the Employee's id field.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * This method returns the Employee's name.
-     * @return 
+     * @return This method returns the Employee's name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * This method sets the Employee's name.
-     * @param name 
+     * @param name This method sets the Employee's name.
      */
     public void setName(String name) {
         this.name = name;

@@ -19,8 +19,7 @@ public abstract class Menu {
     protected boolean exit;
     
     /**
-     * Initializes a new Menu
-     * @param data 
+     * @param data Initializes a new Menu
      */
     public Menu(Data data){
         this.data = data;
@@ -29,8 +28,7 @@ public abstract class Menu {
     }
     
     /**
-     * This method checks for a valid integer input. Returns -1 if the check is false.
-     * @return 
+     * @return This method checks for a valid integer input. Returns -1 if the check is false.
      */
     public int checkForInt(){
         try{return input.nextInt();}
