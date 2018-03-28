@@ -1,0 +1,30 @@
+Errors in Airplane menu:
+- +--------------------------+
+| Airplanes Menu           |
++--------------------------+
+| Please select an option: |
+|                          |
+| 1 - Show Airplanes list  |
+| 2 - Find Airplane by id  |
+| 3 - Assign Pilot by id   |
+| 4 - Return to Main Menu  |
+| 5 - Exit Program         |
++--------------------------+
+
+3
+Please type the pilot Id:
+1
+Please type the airplane Id: // this airplane does not exist.
+6
+
+*** Airplane not found! ***
+
+Exception in thread "main" java.lang.NullPointerException
+	at airline.menus.AirplaneMenu.assignPilot(AirplaneMenu.java:122)
+	at airline.menus.AirplaneMenu.optionSelector(AirplaneMenu.java:41)
+	at airline.menus.AirplaneMenu.<init>(AirplaneMenu.java:25)
+	at airline.menus.MainMenu.optionSelector(MainMenu.java:46)
+	at airline.menus.MainMenu.<init>(MainMenu.java:19)
+	at airline.CCTAir.main(CCTAir.java:22)
+/home/rbsrafa/.cache/netbeans/8.2/executor-snippets/run.xml:53: Java returned: 1
+BUILD FAILED (total time: 25 seconds)

@@ -67,11 +67,10 @@ public class FlightMenu extends Menu{
     @Override
     public String toString(){
         return
-
             "\n+-----------------------------------------------+\n" +
             "| Flights Menu                                  |\n" + 
             "+-----------------------------------------------+\n" +
-            "| 1 - Show flights list                         |\n" +
+            "| 1 - Show flight list                         |\n" +
             "| 2 - Show specific flight info                 |\n" +
             "| 3 - Add a flight                              |\n" +
             "| 4 - Update flight arrival time                |\n" +
@@ -98,7 +97,6 @@ public class FlightMenu extends Menu{
         }
     }
     
-    
     private void setFlightTimes(int flightPosition) {
         Date newDeparture = printChooseDepartureTime();
         Date newArrival = printChooseArrivalTime();
@@ -117,9 +115,9 @@ public class FlightMenu extends Menu{
     }
 
     private void setFlightArrivalTime(int flightPosition) {
-        Date newArrival = printChooseArrivalTime();
-        Date departure = null;
-        if(!super.data.getFlights().get(flightPosition).getDepartureTime().isEmpty()){
+        if(super.data.getFlights().get(flightPosition).getDepartureTime() != null){
+            Date newArrival = printChooseArrivalTime();
+            Date departure = null;
             try{
                 departure = formatTime.parse(super.data.getFlights().get(flightPosition).getDepartureTime());
             } catch (ParseException e) {
@@ -137,7 +135,7 @@ public class FlightMenu extends Menu{
                 setFlightArrivalTime(flightPosition);
             }
         }else{
-            System.out.println("Please set the departure time first");
+            System.out.println("\nDeparture time must be set before arrival time.");
         }
     }
     
@@ -162,8 +160,6 @@ public class FlightMenu extends Menu{
         Date response = checkForTime();
         return response;
     }
-    
-    //falar sobre data (deixar ano 1970?)
 
     private void displayFlightInfo(int flightPosition) {
         System.out.println(super.data.getFlights().get(flightPosition));

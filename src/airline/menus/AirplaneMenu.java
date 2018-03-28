@@ -60,17 +60,16 @@ public class AirplaneMenu extends Menu{
     @Override
     public String toString(){
         return
-            "+--------------------------+\n" +
+            "\n+--------------------------+\n" +
             "| Airplanes Menu           |\n" + 
             "+--------------------------+\n" +
-            "| Please select an option: |\n" +
-            "|                          |\n" +
-            "| 1 - Show Airplanes list  |\n" +
-            "| 2 - Find Airplane by id  |\n" +
-            "| 3 - Assign Pilot by id   |\n" +
+            "| 1 - Show Airplane list   |\n" +
+            "| 2 - Find Airplane by ID  |\n" +
+            "| 3 - Assign Pilot by ID   |\n" +
             "| 4 - Return to Main Menu  |\n" + 
             "| 5 - Exit Program         |\n" + 
-            "+--------------------------+\n";
+            "+--------------------------+\n" +
+            "Please select an option: ";
     }
 
     /**
