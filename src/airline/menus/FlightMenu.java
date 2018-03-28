@@ -111,7 +111,7 @@ public class FlightMenu extends Menu{
             System.out.println("Arrival: "+super.data.getFlights().get(flightPosition).getArrivalTime());
         } else {
             System.out.println("The arrival time should be after the departure"
-                    + "time.");
+                    + " time.");
             setFlightTimes(flightPosition);
         }
     }
@@ -152,13 +152,13 @@ public class FlightMenu extends Menu{
     }
 
     private Date printChooseDepartureTime() {
-        System.out.println("\nType the desired departure time: ");
+        System.out.println("\nType the desired departure time (HH:mm): ");
         Date response = checkForTime();
         return response;
     }
     
     private Date printChooseArrivalTime() {
-        System.out.println("\nType the desired arrival time: ");
+        System.out.println("\nType the desired arrival time (HH:mm): ");
         Date response = checkForTime();
         return response;
     }
@@ -179,7 +179,7 @@ public class FlightMenu extends Menu{
         origin = checkForString();
         System.out.println("Type the desired destination: ");
         destination = checkForString();
-        System.out.println("Type the desired date: ");
+        System.out.println("Type the desired departure date (DD/MM/YYYY): ");
         date = checkForDate();
         aircraft = printChooseAircraft();
         super.data.getFlights().add(new Flight(origin,destination,formatDate.format(date),aircraft));

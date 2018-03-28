@@ -66,7 +66,9 @@ public abstract class Menu {
     public int checkForInt(int lowerBondary, int upperBondary){
         int typedInt = 0;
         try{
-            typedInt = input.nextInt();
+            while(typedInt == 0){
+                typedInt = input.nextInt();
+            }
             if(typedInt>=lowerBondary && typedInt<=upperBondary){
                 return typedInt;
             }else{
@@ -76,12 +78,13 @@ public abstract class Menu {
                 return checkForInt(lowerBondary,upperBondary);
             }
         } catch(InputMismatchException e){
-            System.out.println("\n*** Input is not an integer. Please try again. ***\n");
+            System.out.println("\n*** Input is not an integer. ***\nPlease try again.\n");
+            input.nextLine();
             return checkForInt(lowerBondary,upperBondary);
         }
     }
     
-    public Date checkForDate(){ //maybe mudar esse método pra aceitar argumento (precisei quase da mesma coisa na classe FlightMenu)
+    public Date checkForDate(){ 
         DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         fmt.setLenient(false);
         
@@ -112,8 +115,7 @@ public abstract class Menu {
             Date correctDate = fmt.parse(typedTime);
             return correctDate;
         } catch (ParseException e) {
-            System.out.println("The time format should be hours (00-23) and"
-                    + " minutes (00-59).\nPlease try again:");
+            System.out.println("The time format should be (HH:mm).\nPlease try again:");
             return checkForTime();
         }
     }
