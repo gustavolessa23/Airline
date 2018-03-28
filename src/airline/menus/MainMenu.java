@@ -25,14 +25,13 @@ public class MainMenu extends Menu{
         return
             "+--------------------------+\n" +
             "| Welcome to CCT Air       |\n" +
-            "|--------------------------|\n" +
-            "| Please select an option: |\n" +
-            "|                          |\n" +        
+            "|--------------------------|\n" +  
             "| 1 - Flights              |\n" +
             "| 2 - Airplanes            |\n" +
             "| 3 - Pilots               |\n" + 
             "| 4 - Exit Program         |\n" +        
-            "+--------------------------+";
+            "+--------------------------+\n" +
+            "Please select an option: ";
     }
 
     @Override
