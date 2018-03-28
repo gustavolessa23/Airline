@@ -19,7 +19,10 @@ public class Pilot extends Employee{
         this.assigned = false;
     }
     
-    
+    /**
+     * This method prints the Pilot's instance details on CLI.
+     * @return 
+     */
     @Override
     public String toString(){
         return
@@ -33,18 +36,34 @@ public class Pilot extends Employee{
                "|||||||||||||||||||||||||||||||||\n";
     }
 
+    /**
+     * This method returns the Pilot's rating.
+     * @return 
+     */
     public Enum getRating() {
         return rating;
     }
 
+    /**
+     * This method sets the Pilot's rating.
+     * @param rating 
+     */
     public void setRating(Rating rating) {
         this.rating = rating;
     }
 
+    /**
+     * This method returns if the Pilot is assigned to an Airplane.
+     * @return 
+     */
     public boolean isAssigned() {
         return assigned;
     }
 
+    /**
+     * This method sets the Pilot's assignment state.
+     * @param assigned 
+     */
     public void setAssigned(boolean assigned) {
         this.assigned = assigned;
     }

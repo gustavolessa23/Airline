@@ -80,7 +80,8 @@ public class PilotMenu extends Menu{
         }else if(rating.startsWith("D") || rating.startsWith("d")){
             p = new Pilot(name, Rating.D);
         }else{
-            System.out.println("sth wrong");
+
+            addPilot();
         }
         super.data.getPilots().add(p);
     }

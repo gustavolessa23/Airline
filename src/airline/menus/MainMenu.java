@@ -11,6 +11,10 @@ import airline.data.Data;
  */
 public class MainMenu extends Menu{
     
+    /**
+     * This method initialises a new MainMenu instance.
+     * @param data 
+     */
     public MainMenu(Data data){
         super(data); 
         
@@ -20,6 +24,10 @@ public class MainMenu extends Menu{
         }
     }
     
+    /**
+     * This method prints the MainMenu options on CLI.
+     * @return 
+     */
     @Override
     public String toString() {
         return
@@ -34,6 +42,9 @@ public class MainMenu extends Menu{
             "Please select an option: ";
     }
 
+    /**
+     * This method implements the MainMenu's options logic.
+     */
     @Override
     public void optionSelector() {
         int option = this.checkForInt();

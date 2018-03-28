@@ -18,12 +18,20 @@ public abstract class Menu {
     protected Scanner input;
     protected boolean exit;
     
+    /**
+     * Initializes a new Menu
+     * @param data 
+     */
     public Menu(Data data){
         this.data = data;
         input = new Scanner(System.in);
         exit = false;
     }
     
+    /**
+     * This method checks for a valid integer input. Returns -1 if the check is false.
+     * @return 
+     */
     public int checkForInt(){
         try{return input.nextInt();}
         catch(InputMismatchException e){
@@ -120,6 +128,9 @@ public abstract class Menu {
         }
     }
     
+    /**
+     * This method implements the Menu's options logic.
+     */
     public abstract void optionSelector();
     
     //perguntar da necessidade desse método
@@ -131,10 +142,16 @@ public abstract class Menu {
         System.out.println(menu);
     }
     
+    /**
+     * This method exits the running program.
+     */
     public void exitProgram(){
         System.exit(0);
     }
     
+    /**
+     * This method creates a new instance of MainMenu class.
+     */
     public void returnToMainMenu(){
         new MainMenu(data);
     }
