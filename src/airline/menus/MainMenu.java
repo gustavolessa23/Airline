@@ -23,7 +23,7 @@ public class MainMenu extends Menu{
     @Override
     public String toString() {
         return
-            "+--------------------------+\n" +
+            "\n+--------------------------+\n" +
             "| Welcome to CCT Air       |\n" +
             "|--------------------------|\n" +  
             "| 1 - Flights              |\n" +

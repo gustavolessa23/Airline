@@ -60,7 +60,7 @@ public class AirplaneMenu extends Menu{
     @Override
     public String toString(){
         return
-            "+--------------------------+\n" +
+            "\n+--------------------------+\n" +
             "| Airplanes Menu           |\n" + 
             "+--------------------------+\n" +
             "| 1 - Show Airplane list   |\n" +
