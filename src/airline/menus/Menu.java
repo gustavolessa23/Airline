@@ -1,5 +1,6 @@
 package airline.menus;
 
+import airline.data.Data;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,10 +14,12 @@ import java.util.Scanner;
  * @author gustavolessadublin
  */
 public abstract class Menu {
+    protected Data data;
     protected Scanner input;
     protected boolean exit;
     
-    public Menu(){
+    public Menu(Data data){
+        this.data = data;
         input = new Scanner(System.in);
         exit = false;
     }
@@ -69,6 +72,7 @@ public abstract class Menu {
             }else{
                 System.out.println("\n*** The option should be and integer between "+
                         lowerBondary+" and "+upperBondary+". ***\n");
+                System.out.println("Please try again:");
                 return checkForInt(lowerBondary,upperBondary);
             }
         } catch(InputMismatchException e){
@@ -99,13 +103,17 @@ public abstract class Menu {
     public Date checkForTime(){ //maybe mudar esse método pra aceitar argumento (precisei quase da mesma coisa na classe FlightMenu)
         DateFormat fmt = new SimpleDateFormat("HH:mm");
         fmt.setLenient(false);
+        String typedTime = "";
         
         try {
-            String typedTime = input.nextLine();
+            while(typedTime.isEmpty()){
+                typedTime = input.nextLine();
+            }
             Date correctDate = fmt.parse(typedTime);
             return correctDate;
         } catch (ParseException e) {
-//1         + "(this means hours (00-23) and minutes (00-59)!");
+            System.out.println("The time format should be hours (00-23) and"
+                    + " minutes (00-59).\nPlease try again:");
             return checkForTime();
         }
     }
@@ -126,7 +134,7 @@ public abstract class Menu {
     }
     
     public void returnToMainMenu(){
-        new MainMenu();
+        new MainMenu(data);
     }
     
 }

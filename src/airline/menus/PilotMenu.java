@@ -1,20 +1,20 @@
 package airline.menus;
 
-import airline.CCTAir;
+
 import airline.employees.Pilot;
-import java.util.ArrayList;
+import airline.data.Data;
+
 
 /**
  *
  * @author rbsrafa
  */
 public class PilotMenu extends Menu{
-    ArrayList<Pilot> pilots;
     
-    public PilotMenu(){
-        pilots = CCTAir.pilots;
+    public PilotMenu(Data data){
+        super(data);
         while(!exit){
-            this.displayMenu(this.toString());
+            this.displayMenu(this);
             this.optionSelector();
         }
     }
@@ -57,8 +57,8 @@ public class PilotMenu extends Menu{
     }
 
     public void displayPilots(){
-        for(Pilot p: CCTAir.pilots){
-            System.out.println(p.toString());
+        for(Pilot p: this.data.getPilots()){
+            System.out.println(p);
         }
     }
     
@@ -67,15 +67,11 @@ public class PilotMenu extends Menu{
         System.out.println("Please type the pilot Id:");
         int id = this.checkForInt();
         
-        for(Pilot p: pilots){
+        for(Pilot p: this.data.getPilots()){
             if(id == p.getId()) foundPilot = p;
         }
         if(foundPilot == null) System.out.println("\n*** Pilot not found! ***\n"); 
         else System.out.println(foundPilot.toString());
         
-    }
-    
-    public void returnToMainMenu(){
-        new MainMenu();
     }
 }

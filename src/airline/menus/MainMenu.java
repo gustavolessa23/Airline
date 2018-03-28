@@ -1,5 +1,8 @@
 package airline.menus;
 
+import airline.data.Data;
+
+
 
 
 /**
@@ -8,9 +11,11 @@ package airline.menus;
  */
 public class MainMenu extends Menu{
     
-    public MainMenu(){
+    public MainMenu(Data data){
+        super(data); 
+        
         while(!exit){
-            this.displayMenu(this.toString());
+            this.displayMenu(this);
             this.optionSelector();
         }
     }
@@ -35,13 +40,13 @@ public class MainMenu extends Menu{
         int option = this.checkForInt();
         switch (option) {
             case 1:
-                new FlightMenu();
+                new FlightMenu(this.data);
                 break;
             case 2:
-                new AirplaneMenu();
+                new AirplaneMenu(this.data);
                 break;
             case 3:
-                new PilotMenu();
+                new PilotMenu(this.data);
                 break;
             case 4:
                 this.exitProgram();

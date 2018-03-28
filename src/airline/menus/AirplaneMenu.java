@@ -5,27 +5,23 @@
  */
 package airline.menus;
 
-import airline.CCTAir;
 import airline.aircrafts.Airplane;
 import airline.employees.Pilot;
-import java.util.ArrayList;
+import airline.data.Data;
 
 /**
  *
  * @author lucivalsn
  */
 public class AirplaneMenu extends Menu{
-    ArrayList<Airplane> airplanes;
-    ArrayList<Pilot> pilots;
     
     /**
      * Build a Menu with options to manage Airplane objects
      */
-    public AirplaneMenu(){
-        airplanes = CCTAir.airplanes;
-        pilots = CCTAir.pilots;
+    public AirplaneMenu(Data data){
+        super(data);
         while(!exit){
-            this.displayMenu(this.toString());
+            this.displayMenu(this);
             this.optionSelector();
         }
     }
@@ -39,7 +35,7 @@ public class AirplaneMenu extends Menu{
                 break;
             case 2:
                 Airplane aId = this.searchAirplane();
-                System.out.println(aId.toString());
+                System.out.println(aId);
                 break;
             case 3:
                 this.assignPilot();
@@ -81,7 +77,7 @@ public class AirplaneMenu extends Menu{
      * Display all the Airplane objects stored in the list
      */
     private void displayAirplanes() {
-        for(Airplane a: CCTAir.airplanes){
+        for(Airplane a: super.data.getAirplanes()){
             System.out.println(a);
         }
     }
@@ -96,7 +92,7 @@ public class AirplaneMenu extends Menu{
         System.out.println("Please type the airplane Id:");
         int id = this.checkForInt();
         
-        for(Airplane a: airplanes){
+        for(Airplane a: super.data.getAirplanes()){
             if(id == a.getId()) searchAirplaneId = a;
         }
         if(searchAirplaneId == null) System.out.println("\n*** Airplane not found! ***\n"); 
@@ -117,7 +113,7 @@ public class AirplaneMenu extends Menu{
         System.out.println("Please type the pilot Id:");
         int pilotId = this.checkForInt();
         
-        for(Pilot p: pilots){
+        for(Pilot p: super.data.getPilots()){
             if(pilotId == p.getId()) pilotToAssign = p;
         }
         if(pilotToAssign == null) System.out.println("\n*** Pilot not found! ***\n");
@@ -125,12 +121,5 @@ public class AirplaneMenu extends Menu{
         airplaneToAssign = this.searchAirplane();
         airplaneToAssign.assignPilot(pilotToAssign);
         System.out.println(airplaneToAssign.toString());
-    }
-    
-    /**
-     * Returns to main menu screen
-     */
-    public void returnToMainMenu(){
-        new MainMenu();
     }
 }
