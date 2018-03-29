@@ -75,11 +75,10 @@ public class PilotMenu extends Menu{
      * This method adds a new Pilot to the ArrayList of pilots.
      */
     public void addPilot(){
-        Pilot p = null;
         input.nextLine();        
         System.out.println("Please type the pilot name:");
         String name = input.nextLine();
-        selectRating(name, p);
+        selectRating(name);
     }
     
     /**
@@ -87,7 +86,7 @@ public class PilotMenu extends Menu{
      * @param name
      * @param p 
      */
-    public void selectRating(String name, Pilot p){
+    public void selectRating(String name){
         System.out.println("Please type the pilot Rating:\nAvailable ratings: ");
         for(Rating r: Rating.values()){
             System.out.println(r+" (Max number of passengers: " + r.getPassengers() + ")");
@@ -95,22 +94,17 @@ public class PilotMenu extends Menu{
         String rating = input.nextLine();
         
         if(rating.startsWith("A") || rating.startsWith("a")){
-            p = new Pilot(name, Rating.A);
-            super.data.getPilots().add(p);
+            super.data.getPilots().add(new Pilot(name, Rating.A));
         }else if(rating.startsWith("B") || rating.startsWith("b")){
-            p = new Pilot(name, Rating.B);
-            super.data.getPilots().add(p);
+            super.data.getPilots().add(new Pilot(name, Rating.B));
         }else if(rating.startsWith("C") || rating.startsWith("c")){
-            p = new Pilot(name, Rating.C);
-            super.data.getPilots().add(p);
+            super.data.getPilots().add(new Pilot(name, Rating.C));
         }else if(rating.startsWith("D") || rating.startsWith("d")){
-            p = new Pilot(name, Rating.D);
-            super.data.getPilots().add(p);
+            super.data.getPilots().add(new Pilot(name, Rating.D));
         }else{
             System.out.println("\n*** Invalid option, please try again. ***\n");
-            selectRating(name, p);
-        }
-        
+            selectRating(name);
+        } 
     }
 
     /**
