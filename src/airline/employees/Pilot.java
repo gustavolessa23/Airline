@@ -38,7 +38,7 @@ public class Pilot extends Employee{
     /**
      * @return This method returns the Pilot's rating.
      */
-    public Enum getRating() {
+    public Rating getRating() {
         return rating;
     }
 

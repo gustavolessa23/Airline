@@ -95,7 +95,6 @@ public class AirplaneMenu extends Menu{
             if(id == a.getId()) searchAirplaneId = a;
         }
         if(searchAirplaneId == null) System.out.println("\n*** Airplane not found! ***\n"); 
-        //else System.out.println(searchAirplaneId.toString());
         return searchAirplaneId;
     }
 
@@ -118,6 +117,7 @@ public class AirplaneMenu extends Menu{
         if(pilotToAssign == null) System.out.println("\n*** Pilot not found! ***\n");
         
         airplaneToAssign = this.searchAirplane();
+        
         airplaneToAssign.assignPilot(pilotToAssign);
         System.out.println(airplaneToAssign.toString());
     }
