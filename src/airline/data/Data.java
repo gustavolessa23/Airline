@@ -21,12 +21,19 @@ public class Data {
     private ArrayList<Airplane> airplanes;
     private ArrayList<Flight> flights;
     
+    /**
+     * This constructor creates a new Data object that contains the ArrayLists of pilots, airplanes and flights.
+     */
     public Data(){
         this.pilots = this.generatePilots();
         this.airplanes = this.generateAirplanes();
         this.flights = this.generateFlights();
     }
     
+    /**
+     * This method generates and returns new ArrayList of pilots.
+     * @return pilots
+     */
     public ArrayList<Pilot> generatePilots(){
         ArrayList<Pilot> pilots = new ArrayList<>();
         String[] names = {"Rafael Barros", "Lucival Nascimento", "Gustavo Lessa", "Mark Dontknow"};
@@ -39,6 +46,10 @@ public class Data {
         return pilots;
     }
     
+    /**
+     * This method generates and returns a new ArrayList of airplanes.
+     * @return airplanes
+     */
     public ArrayList<Airplane> generateAirplanes(){
         ArrayList<Airplane> airplanes = new ArrayList<>();
         String[] make = {"Boeing", "Embraer", "Airbus", "Bombardier"};
@@ -57,6 +68,10 @@ public class Data {
         return airplanes;
     }
     
+    /**
+     * This method generates and returns a new ArrayList of flights.
+     * @return flights
+     */
     public ArrayList<Flight> generateFlights(){
         ArrayList<Flight> flights = new ArrayList<>();
         String[] origins = {"Rio de Janeiro", "São Paulo", "Lisbon", "London"};
@@ -81,26 +96,50 @@ public class Data {
         return flights;
     }
 
+    /**
+     * This method returns a ArrayList of Pilots.
+     * @return pilots
+     */
     public ArrayList<Pilot> getPilots() {
         return pilots;
     }
 
+    /**
+     * 
+     * @param pilots This method sets the Data's ArrayList of Pilots.
+     */
     public void setPilots(ArrayList<Pilot> pilots) {
         this.pilots = pilots;
     }
 
+    /**
+     * 
+     * @return This method returns a ArrayList of Airplanes.
+     */
     public ArrayList<Airplane> getAirplanes() {
         return airplanes;
     }
 
+    /**
+     * 
+     * @param airplanes This method sets the Data's ArrayList of Airplanes.
+     */
     public void setAirplanes(ArrayList<Airplane> airplanes) {
         this.airplanes = airplanes;
     }
 
+    /**
+     * 
+     * @return This method returns a ArrayList of Flights.
+     */
     public ArrayList<Flight> getFlights() {
         return flights;
     }
 
+    /**
+     * 
+     * @param flights This method sets the Data's ArrayList of Flights.
+     */
     public void setFlights(ArrayList<Flight> flights) {
         this.flights = flights;
     }

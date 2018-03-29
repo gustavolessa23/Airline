@@ -12,6 +12,10 @@ import airline.employees.Rating;
  */
 public class PilotMenu extends Menu{
     
+    /**
+     * This constructor creates a new PilotMenu object.
+     * @param data An object that contains three ArrayLists.
+     */
     public PilotMenu(Data data){
         super(data);
         while(!exit){
@@ -20,6 +24,9 @@ public class PilotMenu extends Menu{
         }
     }
 
+    /**
+     * This method implement the PilotMenu option selection logic.
+     */
     @Override
     public void optionSelector() {
         int option = this.validate.checkForInt(input);
@@ -45,6 +52,10 @@ public class PilotMenu extends Menu{
         }
     }
     
+    /**
+     * This method returns the PilotMenu visualisation on CLI.
+     * @return 
+     */
     @Override
     public String toString(){
         return
@@ -60,11 +71,23 @@ public class PilotMenu extends Menu{
             "Please select an option:   ";
     }
     
+    /**
+     * This method adds a new Pilot to the ArrayList of pilots.
+     */
     public void addPilot(){
         Pilot p = null;
         input.nextLine();        
         System.out.println("Please type the pilot name:");
         String name = input.nextLine();
+        selectRating(name, p);
+    }
+    
+    /**
+     * This method gets a user input for the Pilot's rating during its creation on addPilot method.
+     * @param name
+     * @param p 
+     */
+    public void selectRating(String name, Pilot p){
         System.out.println("Please type the pilot Rating:\nAvailable ratings: ");
         for(Rating r: Rating.values()){
             System.out.println(r+" (Max number of passengers: " + r.getPassengers() + ")");
@@ -73,24 +96,35 @@ public class PilotMenu extends Menu{
         
         if(rating.startsWith("A") || rating.startsWith("a")){
             p = new Pilot(name, Rating.A);
+            super.data.getPilots().add(p);
         }else if(rating.startsWith("B") || rating.startsWith("b")){
             p = new Pilot(name, Rating.B);
+            super.data.getPilots().add(p);
         }else if(rating.startsWith("C") || rating.startsWith("c")){
             p = new Pilot(name, Rating.C);
+            super.data.getPilots().add(p);
         }else if(rating.startsWith("D") || rating.startsWith("d")){
             p = new Pilot(name, Rating.D);
+            super.data.getPilots().add(p);
         }else{
-            System.out.println("sth wrong");
+            System.out.println("\n*** Invalid option, please try again. ***\n");
+            selectRating(name, p);
         }
-        super.data.getPilots().add(p);
+        
     }
 
+    /**
+     * This method displays a List of all Pilots.
+     */
     public void displayPilots(){
         for(Pilot p: this.data.getPilots()){
             System.out.println(p);
         }
     }
     
+    /**
+     * This method searchs for a specific pilot and prints its details to CLI.
+     */
     public void searchPilot(){
         Pilot foundPilot = null;
         System.out.println("Please type the pilot Id:");
@@ -100,7 +134,7 @@ public class PilotMenu extends Menu{
             if(id == p.getId()) foundPilot = p;
         }
         if(foundPilot == null) System.out.println("\n*** Pilot not found! ***\n"); 
-        else System.out.println(foundPilot.toString());
+        else System.out.println(foundPilot);
         
     }
 }

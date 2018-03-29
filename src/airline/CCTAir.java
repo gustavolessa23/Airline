@@ -15,9 +15,7 @@ public class CCTAir {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-   
-        Data data;
-        data = new Data();
+        Data data = new Data();
 
         new MainMenu(data);    
     }

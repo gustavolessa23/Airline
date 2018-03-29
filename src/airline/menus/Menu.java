@@ -20,6 +20,9 @@ public abstract class Menu {
     protected boolean exit;
     protected InputValidation validate;
     
+    /**
+     * @param data Initializes a new Menu
+     */
     public Menu(Data data){
         this.data = data;
         input = new Scanner(System.in);
@@ -135,10 +138,16 @@ public abstract class Menu {
         System.out.println(menu);
     }
     
+    /**
+     * This method exits the running program.
+     */
     public void exitProgram(){
         System.exit(0);
     }
     
+    /**
+     * This method creates a new instance of MainMenu class.
+     */
     public void returnToMainMenu(){
         new MainMenu(data);
     }
