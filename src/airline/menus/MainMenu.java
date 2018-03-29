@@ -36,7 +36,7 @@ public class MainMenu extends Menu{
 
     @Override
     public void optionSelector() {
-        int option = this.checkForInt();
+        int option = this.validate.checkForInt(input);
         switch (option) {
             case 1:
                 new FlightMenu(this.data);

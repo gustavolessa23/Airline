@@ -22,7 +22,7 @@ public class PilotMenu extends Menu{
 
     @Override
     public void optionSelector() {
-        int option = this.checkForInt();
+        int option = this.validate.checkForInt(input);
         switch (option) {
             case 1:
                 this.displayPilots();
@@ -94,7 +94,7 @@ public class PilotMenu extends Menu{
     public void searchPilot(){
         Pilot foundPilot = null;
         System.out.println("Please type the pilot Id:");
-        int id = this.checkForInt();
+        int id = this.validate.checkForInt(input);
         
         for(Pilot p: this.data.getPilots()){
             if(id == p.getId()) foundPilot = p;

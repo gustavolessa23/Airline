@@ -35,7 +35,7 @@ public class FlightMenu extends Menu{
 
     @Override
     public void optionSelector() {
-        int option = checkForInt();
+        int option = validate.checkForInt(input);
         switch (option) {
             case 1:
                 displayFlights();
@@ -121,8 +121,7 @@ public class FlightMenu extends Menu{
             try{
                 departure = formatTime.parse(super.data.getFlights().get(flightPosition).getDepartureTime());
             } catch (ParseException e) {
-                System.out.println("Incorrect format, the date should be HH:mm "
-                    + "(this means hours (00-23) and minutes (00-59)!");
+                System.out.println("Incorrect format, the date should be HH:mm");
             }
 
             if(newArrival.after(departure)){
@@ -145,19 +144,19 @@ public class FlightMenu extends Menu{
             System.out.print(f.getId()+" ");
         }
         System.out.print("\nPlease select a Flight ID: ");
-        int response = checkForInt(1, super.data.getFlights().size());
+        int response = validate.checkForInt(input, 1, super.data.getFlights().size());
         return checkFlightIdPosition(response);
     }
 
     private Date printChooseDepartureTime() {
         System.out.println("\nType the desired departure time (HH:mm): ");
-        Date response = checkForTime();
+        Date response = validate.checkForTime(input);
         return response;
     }
     
     private Date printChooseArrivalTime() {
         System.out.println("\nType the desired arrival time (HH:mm): ");
-        Date response = checkForTime();
+        Date response = validate.checkForTime(input);
         return response;
     }
 
@@ -172,11 +171,11 @@ public class FlightMenu extends Menu{
         Aircraft aircraft = null;
         System.out.println("\nNew flight");
         System.out.println("\nType the desired origin: ");
-        origin = checkForString();
+        origin = validate.checkForString(input);
         System.out.println("Type the desired destination: ");
-        destination = checkForString();
+        destination = validate.checkForString(input);
         System.out.println("Type the desired departure date (DD/MM/YYYY): ");
-        date = checkForDate();
+        date = validate.checkForDate(input);
         aircraft = printChooseAircraft();
         super.data.getFlights().add(new Flight(origin,destination,formatDate.format(date),aircraft));
         System.out.println("Flight created");
@@ -192,13 +191,13 @@ public class FlightMenu extends Menu{
             System.out.println((x+1)+" - "+super.data.getAirplanes().get(x).getMake()+" "+super.data.getAirplanes().get(x).getModel());
         }
         System.out.print("\nPlease select an option: ");       
-        int option = checkForInt(1, super.data.getAirplanes().size());
+        int option = validate.checkForInt(input, 1, super.data.getAirplanes().size());
         return super.data.getAirplanes().get(option-1);
     }
     
     private boolean addScheduleOption(){
         System.out.println("\nWould you like to set schedule information? (Y/N)");
-        return checkForYes();   
+        return validate.checkForYes(input);   
     }
    
 }

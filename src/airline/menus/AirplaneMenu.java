@@ -28,7 +28,7 @@ public class AirplaneMenu extends Menu{
     
     @Override
     public void optionSelector() {
-        int option = this.checkForInt();
+        int option = this.validate.checkForInt(input);
         switch (option) {
             case 1:
                 this.displayAirplanes();
@@ -89,7 +89,7 @@ public class AirplaneMenu extends Menu{
     private Airplane searchAirplane() {
         Airplane searchAirplaneId = null;
         System.out.println("Please type the airplane Id:");
-        int id = this.checkForInt();
+        int id = this.validate.checkForInt(input);
         
         for(Airplane a: super.data.getAirplanes()){
             if(id == a.getId()) searchAirplaneId = a;
@@ -110,7 +110,7 @@ public class AirplaneMenu extends Menu{
         Pilot pilotToAssign = null;
         Airplane airplaneToAssign = null;
         System.out.println("Please type the pilot Id:");
-        int pilotId = this.checkForInt();
+        int pilotId = this.validate.checkForInt(input);
         
         for(Pilot p: super.data.getPilots()){
             if(pilotId == p.getId()) pilotToAssign = p;
