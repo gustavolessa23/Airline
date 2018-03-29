@@ -62,7 +62,7 @@ public class PilotMenu extends Menu{
             "\n+--------------------------+\n" +
             "| Pilots Menu              |\n" + 
             "+--------------------------+\n" +
-            "| 1 - Show Pilots list     |\n" +
+            "| 1 - Show Pilot list      |\n" +
             "| 2 - Find Pilot by id     |\n" +
             "| 3 - Add new Pilot        |\n" +    
             "| 4 - Return to Main Menu  |\n" + 

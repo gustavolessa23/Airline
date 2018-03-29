@@ -70,7 +70,7 @@ public class FlightMenu extends Menu{
             "\n+-----------------------------------------------+\n" +
             "| Flights Menu                                  |\n" + 
             "+-----------------------------------------------+\n" +
-            "| 1 - Show flight list                         |\n" +
+            "| 1 - Show flight list                          |\n" +
             "| 2 - Show specific flight info                 |\n" +
             "| 3 - Add a flight                              |\n" +
             "| 4 - Update flight arrival time                |\n" +

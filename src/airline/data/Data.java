@@ -36,7 +36,7 @@ public class Data {
      */
     public ArrayList<Pilot> generatePilots(){
         ArrayList<Pilot> pilots = new ArrayList<>();
-        String[] names = {"Rafael Barros", "Lucival Nascimento", "Gustavo Lessa", "Mark Dontknow"};
+        String[] names = {"Rafael Barros", "Lucival Nascimento", "Gustavo Lessa", "Mark Morrissey"};
         Rating[] ratings = {Rating.A, Rating.B, Rating.C, Rating.D};
         
         for(int i = 0; i < names.length; i++){
