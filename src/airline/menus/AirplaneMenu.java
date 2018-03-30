@@ -88,7 +88,7 @@ public class AirplaneMenu extends Menu{
     /**
      * Search an Airplane object using the id reference.
      * A valid id must be input by the user
-     * @return Returns an Airplane object
+     * @return Returns Airplane object details
      */
     private Airplane searchAirplane() {
         Airplane searchAirplaneId = null;
@@ -102,7 +102,10 @@ public class AirplaneMenu extends Menu{
         return searchAirplaneId;
     }
     
-    
+    /**
+     * This method collect users entry to add a new Airplane object.
+     * A valid Pilot object must be assigned.
+     */
     public void addAirplane(){
         input.nextLine();        
         System.out.println("Please type the airplane make:");
@@ -115,34 +118,17 @@ public class AirplaneMenu extends Menu{
         int option = this.validate.checkForInt(input);
         Pilot pilot = super.data.getPilots().get(option);
         super.data.getAirplanes().add(new Airplane(make, model, capacity, pilot));
+        System.out.println("\n*** Airplane id: " 
+                + super.data.getAirplanes().size() + " has been added ***\n");
     }
-
-    /**
-     * Search a Pilot object using the id reference.
-     * Search an Airplane object using the id reference.
-     * A valid id must be input by the user in both cases.
-     * The designed Pilot is then assigned to the designed Airplane.
-     * Any previous Pilot assigned will be lost.
-     */
-//    private void assignPilot() {
-//        Pilot pilotToAssign = null;
-//        Airplane airplaneToAssign = null;
-//        System.out.println("Please type the pilot Id:");
-//        int pilotId = this.validate.checkForInt(input);
-//        
-//        for(Pilot p: super.data.getPilots()){
-//            if(pilotId == p.getId()) pilotToAssign = p;
-//        }
-//        if(pilotToAssign == null) System.out.println("\n*** Pilot not found! ***\n");
-//        
-//        airplaneToAssign = this.searchAirplane();
-//        
-//        airplaneToAssign.assignPilot(pilotToAssign);
-//        System.out.println(airplaneToAssign.toString());
-//    }
     
     /**
-     * This method validates the pilot availability for assignment and assigns it to an airplane. 
+     * This method searches a Pilot object using the id reference provided.
+     * Also searches an Airplane object using the id reference provided.
+     * A valid id must be input by the user in both cases.
+     * The Pilot availability is validated, if free
+     * the Pilot is assigned to the designated Airplane.
+     * Any previous Pilot data assigned will be lost.
      */
     private void assignPilot() {       
         Pilot pilotToAssign = null;
@@ -155,6 +141,7 @@ public class AirplaneMenu extends Menu{
         }
         if(pilotToAssign == null) {
             System.out.println("\n*** Pilot not found! ***");
+            this.assignPilot();
         }else{
             airplaneToAssign = this.searchAirplane();       
         
