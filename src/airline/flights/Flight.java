@@ -14,15 +14,14 @@ import airline.aircrafts.Aircraft;
 public class Flight {
     private final int id;
     private static int lastId = 0;
-    private String origin;
-    private String destination;
+    private Location origin;
+    private Location destination;
     private String departureTime;
     private String arrivalTime;
     private String dateOfFlight;
-    private String dateOfArrival;
     private Aircraft aircraftAssigned;
     
-    public Flight(String origin, String destination, String dateOfFlight,
+    public Flight(Location origin, Location destination, String dateOfFlight,
             Aircraft aircraftAssigned){
         this.origin = origin;
         this.destination = destination;
@@ -52,7 +51,7 @@ public class Flight {
                "+-------------------------------+\n"+
                " ID: "+this.id+"\n"+ 
                " Date: "+this.dateOfFlight+"\n"+                 
-               " From: "+this.origin+" to "+this.destination+"\n"+ 
+               " From: "+this.origin.getName()+" to "+this.destination.getName()+"\n"+ 
                " Flight time: "+flightTimes()+"\n"+
                "+-------------------------------+\n"+
                "| Airplane Info                 |\n"+
@@ -68,11 +67,11 @@ public class Flight {
         return id;
     }
 
-    public String getOrigin() {
+    public Location getOrigin() {
         return origin;
     }
 
-    public String getDestination() {
+    public Location getDestination() {
         return destination;
     }
 
@@ -92,11 +91,11 @@ public class Flight {
         return aircraftAssigned;
     }
 
-    public void setOrigin(String origin) {
+    public void setOrigin(Location origin) {
         this.origin = origin;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(Location destination) {
         this.destination = destination;
     }
 

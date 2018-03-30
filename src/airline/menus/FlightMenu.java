@@ -10,6 +10,7 @@ import airline.aircrafts.Aircraft;
 import airline.aircrafts.Airplane;
 import airline.flights.Flight;
 import airline.data.Data;
+import airline.flights.Location;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -165,20 +166,19 @@ public class FlightMenu extends Menu{
     }
 
     private void addFlight() {
-        String origin = "";
-        String destination = "";
+        Location origin = null;
+        Location destination = null;
         Date date = null;
         Aircraft aircraft = null;
-        System.out.println("\nNew flight");
-        System.out.println("\nType the desired origin: ");
-        origin = validate.checkForString(input);
-        System.out.println("Type the desired destination: ");
-        destination = validate.checkForString(input);
-        System.out.println("Type the desired departure date (DD/MM/YYYY): ");
+        System.out.println("\n---NEW FLIGHT CREATION---");
+        System.out.println("\nSelect the desired origin: ");
+        origin = printChooseLocation();
+        destination = printChooseDestination(origin);
+        System.out.println("\nType the desired departure date (DD/MM/YYYY): ");
         date = validate.checkForDate(input);
         aircraft = printChooseAircraft();
         super.data.getFlights().add(new Flight(origin,destination,formatDate.format(date),aircraft));
-        System.out.println("Flight created");
+        System.out.println("Flight created!");
         System.out.println(super.data.getFlights().get(super.data.getFlights().size()-1));
         if(addScheduleOption()){
             setFlightTimes((super.data.getFlights().size()-1));
@@ -199,5 +199,31 @@ public class FlightMenu extends Menu{
         System.out.println("\nWould you like to set schedule information? (Y/N)");
         return validate.checkForYes(input);   
     }
+    
+    private Location printChooseLocation(){
+        String[] cities = Location.getAllNames();
+        Location[] locations = Location.getAllOptions();
+        System.out.println("");
+        for(int x = 0; x < cities.length; x++){
+            System.out.println((x+1)+" - "+cities[x]);
+        }
+        System.out.print("\nPlease choose an option: ");
+        int response = validate.checkForInt(input, 1, locations.length);
+        return locations[response-1];
+    }
+
+    private Location printChooseDestination(Location origin) {
+        System.out.println("\nSelect the desired destination: ");
+        Location destination = printChooseLocation();
+        if(validate.isDiferentLocation(origin, destination)){
+            return destination;
+        } else {
+            System.out.println("\n ---Origin and destination cannot be the same.---"
+                    + "\nPlease try again.");
+            return printChooseDestination(origin);
+        }
+    }
+    
+    
    
 }

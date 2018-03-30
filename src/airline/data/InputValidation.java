@@ -7,6 +7,7 @@ package airline.data;
 
 import airline.aircrafts.Airplane;
 import airline.employees.Pilot;
+import airline.flights.Location;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -99,13 +100,15 @@ public class InputValidation {
     public Date checkForDate(Scanner input){ 
         DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         fmt.setLenient(false);
-        
+        String typedDate = "";
         try {
-            String typedDate = input.nextLine();
+            while(typedDate.isEmpty()){
+                typedDate = input.nextLine();   
+            }
             Date correctDate = fmt.parse(typedDate);
             return correctDate;
         } catch (ParseException e) {
-            System.out.println("Date format should be DD/MM/YYYY. Try again.");
+            System.out.println("Wrong format! Date should be DD/MM/YYYY. Try again.");
             return checkForDate(input);
         }
     }
@@ -131,6 +134,14 @@ public class InputValidation {
         } catch (ParseException e) {
             System.out.println("The time format should be (HH:mm).\nPlease try again:");
             return checkForTime(input);
+        }
+    }
+    
+    public boolean isDiferentLocation(Location origin, Location destination){
+        if(origin.equals(destination)){
+            return false;
+        } else {
+            return true;
         }
     }
 

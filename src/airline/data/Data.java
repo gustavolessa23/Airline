@@ -5,11 +5,11 @@
  */
 package airline.data;
 
-import airline.data.InputValidation;
 import airline.aircrafts.Airplane;
 import airline.employees.Pilot;
 import airline.employees.Rating;
 import airline.flights.Flight;
+import airline.flights.Location;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -82,17 +82,18 @@ public class Data {
      */
     public ArrayList<Flight> generateFlights(){
         ArrayList<Flight> flights = new ArrayList<>();
-        String[] origins = {"Rio de Janeiro", "São Paulo", "Lisbon", "London"};
-        String[] destinations = {"Dublin","Amsterdam","Miami","Tokyo"};
+       // String[] origins = {"Rio de Janeiro", "São Paulo", "Lisbon", "London"};
+      //  String[] destinations = {"Dublin","Amsterdam","Miami","Tokyo"};
         String[] departureTimes = {"10:10", "09:40","08:20","07:00"};
         String[] arrivalTimes = {"13:10","14:05","15:45","19:55"};
         String[] dates = {"02/01/2018","23/09/2018","17/02/2018","25/12/2018"};
 
         Random rand = new Random(); 
+        Location[] locations = Location.getAllOptions();
         
         for(int i = 0; i < 5; i++){
-            Flight f = new Flight(origins[rand.nextInt(origins.length-1)], 
-                    destinations[rand.nextInt(destinations.length-1)],
+            Flight f = new Flight(locations[rand.nextInt(locations.length)], 
+                    locations[rand.nextInt(locations.length)],
                     dates[rand.nextInt(dates.length-1)], 
                     airplanes.get(rand.nextInt(airplanes.size()-1)));
             
