@@ -28,8 +28,8 @@ public class InputValidation {
      * This method checks if the given pilot is allowed to fly a given airplane.
      * It checks the pilot availability and then its rating against the airplane capacicy.
      * @param p Pilot to be checked.
-     * @param a Airplane to be checked.
-     * @return boolean
+     * @param a capacity to be checked.
+     * @return True if the pilot is Allowed to fly the airplane, false otherwise.
      */
     public boolean isAllowed(Pilot p, int capacity){
         if(p.isAssigned() || p.getRating().getPassengers() < capacity) return false;
