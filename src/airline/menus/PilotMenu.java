@@ -44,11 +44,17 @@ public class PilotMenu extends Menu{
                 this.returnToMainMenu();
                 break;
             case 5:
-                this.exitProgram();
+                this.exitProgram();  
                 break;
             default:
                 System.out.println("\n*** Invalid option. Please try again ***\n");
                 break;
+        }
+    }
+    
+    public void printPilotStatus(){
+        for(Pilot p: super.data.getPilots()){
+            System.out.println(p + " " + p.isAssigned());
         }
     }
     
@@ -65,8 +71,8 @@ public class PilotMenu extends Menu{
             "| 1 - Show Pilot list      |\n" +
             "| 2 - Find Pilot by id     |\n" +
             "| 3 - Add new Pilot        |\n" +    
-            "| 4 - Return to Main Menu  |\n" + 
-            "| 5 - Exit Program         |\n" + 
+            "| 4 - Return to Main Menu  |\n" +
+            "| 5 - Exit Program         |\n" +
             "+--------------------------+\n" +
             "Please select an option:   ";
     }

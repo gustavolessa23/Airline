@@ -31,8 +31,16 @@ public class Pilot extends Employee{
                " ID: " + this.id + "\n" + 
                " Name: " + this.name + "\n" + 
                " Licence type: " + this.rating + "\n" +
+               " Assignment status: " + assignmentStatus() + "\n" + 
                "+-------------------------------+\n\n" +
                "|||||||||||||||||||||||||||||||||\n";
+    }
+    
+    public String assignmentStatus(){
+        String status = "";
+        if(this.assigned == true) status = "Assigned";
+        else status = "Not assigned";
+        return status;
     }
 
     /**
