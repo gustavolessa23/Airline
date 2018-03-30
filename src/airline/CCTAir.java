@@ -15,7 +15,6 @@ public class CCTAir {
      */
     public static void main(String[] args) {
         Data data = new Data();
-
         new MainMenu(data);    
     }
     

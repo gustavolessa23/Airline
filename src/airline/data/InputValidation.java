@@ -5,7 +5,6 @@
  */
 package airline.data;
 
-import airline.aircrafts.Airplane;
 import airline.employees.Pilot;
 import airline.flights.Location;
 import java.text.DateFormat;

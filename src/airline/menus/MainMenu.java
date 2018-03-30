@@ -2,9 +2,6 @@ package airline.menus;
 
 import airline.data.Data;
 
-
-
-
 /**
  *
  * @author rbsrafa
