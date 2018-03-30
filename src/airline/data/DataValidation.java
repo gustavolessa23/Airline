@@ -18,15 +18,11 @@ import java.util.Scanner;
  *
  * @author gustavolessa1
  */
-public class InputValidation {
-    
-    public InputValidation(){
-        
-    }
+public class DataValidation {
     
     /**
-     This method checks if the given pilot is allowed to fly a given airplane.
-     * It checks the pilot availability and then its rating against the airplane capacicy.
+     * This method checks if the given pilot is allowed to fly a given airplane,
+     * it checks the pilot availability and then its rating against the airplane capacicy.
      * @param p Pilot to be checked.
      * @param capacity capacity to be checked.
      * @return True if the pilot is Allowed to fly the airplane, false otherwise.
@@ -116,7 +112,7 @@ public class InputValidation {
      * /**
      * Checks input line for a date formatted as HH:mm.
      * If not correct, the method calls itself until the user input is accepted
-     * @param input
+     * @param input (Scanner)
      * @return String correctDate
      */
     public Date checkForTime(Scanner input){ //maybe mudar esse método pra aceitar argumento (precisei quase da mesma coisa na classe FlightMenu)

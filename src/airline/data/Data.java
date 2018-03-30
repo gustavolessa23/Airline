@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package airline.data;
 
 import airline.aircrafts.Airplane;
@@ -21,13 +16,13 @@ public class Data {
     private ArrayList<Pilot> pilots;   
     private ArrayList<Airplane> airplanes;
     private ArrayList<Flight> flights;
-    private InputValidation validation;
+    private DataValidation validation;
     
     /**
      * This constructor creates a new Data object that contains the ArrayLists of pilots, airplanes and flights.
      */
     public Data(){
-        this.validation = new InputValidation();
+        this.validation = new DataValidation();
         this.pilots = this.generatePilots();
         this.airplanes = this.generateAirplanes();
         this.flights = this.generateFlights();
@@ -37,7 +32,7 @@ public class Data {
      * This method generates and returns new ArrayList of pilots.
      * @return pilots
      */
-    public ArrayList<Pilot> generatePilots(){
+    private ArrayList<Pilot> generatePilots(){
         ArrayList<Pilot> pilots = new ArrayList<>();
         String[] names = {"Rafael Barros", "Lucival Nascimento", "Gustavo Lessa", "Mark Morrissey"};
         Rating[] ratings = {Rating.A, Rating.B, Rating.C, Rating.D};
@@ -53,7 +48,7 @@ public class Data {
      * This method generates and returns a new ArrayList of airplanes.
      * @return airplanes
      */
-    public ArrayList<Airplane> generateAirplanes(){
+    private ArrayList<Airplane> generateAirplanes(){
         ArrayList<Airplane> airplanes = new ArrayList<>();
         String[] make = {"Boeing", "Embraer", "Airbus", "Bombardier"};
         String[] model = {"737", "747", "A318", "A380", 
@@ -78,12 +73,10 @@ public class Data {
     
     /**
      * This method generates and returns a new ArrayList of flights.
-     * @return flights
+     * @return flights (ArrayList)
      */
-    public ArrayList<Flight> generateFlights(){
+    private ArrayList<Flight> generateFlights(){
         ArrayList<Flight> flights = new ArrayList<>();
-       // String[] origins = {"Rio de Janeiro", "São Paulo", "Lisbon", "London"};
-      //  String[] destinations = {"Dublin","Amsterdam","Miami","Tokyo"};
         String[] departureTimes = {"10:10", "09:40","08:20","07:00"};
         String[] arrivalTimes = {"13:10","14:05","15:45","19:55"};
         String[] dates = {"02/01/2018","23/09/2018","17/02/2018","25/12/2018"};
@@ -107,47 +100,47 @@ public class Data {
 
     /**
      * This method returns a ArrayList of Pilots.
-     * @return pilots
+     * @return pilots (ArrayList) a ArrayList of pilots
      */
     public ArrayList<Pilot> getPilots() {
         return pilots;
     }
 
     /**
-     * 
-     * @param pilots This method sets the Data's ArrayList of Pilots.
+     * This method sets the Data's ArrayList of Pilots.
+     * @param pilots (ArrayList)
      */
     public void setPilots(ArrayList<Pilot> pilots) {
         this.pilots = pilots;
     }
 
     /**
-     * 
-     * @return This method returns a ArrayList of Airplanes.
+     * This method returns a ArrayList of Airplanes.
+     * @return (ArrayList) a ArrayList of airplanes
      */
     public ArrayList<Airplane> getAirplanes() {
         return airplanes;
     }
 
     /**
-     * 
-     * @param airplanes This method sets the Data's ArrayList of Airplanes.
+     * This method sets the Data's ArrayList of Airplanes.
+     * @param airplanes (ArrayList)
      */
     public void setAirplanes(ArrayList<Airplane> airplanes) {
         this.airplanes = airplanes;
     }
 
     /**
-     * 
-     * @return This method returns a ArrayList of Flights.
+     * This method returns a ArrayList of Flights.
+     * @return (ArrayList) ArrayList of flights
      */
     public ArrayList<Flight> getFlights() {
         return flights;
     }
 
     /**
-     * 
-     * @param flights This method sets the Data's ArrayList of Flights.
+     * This method sets the Data's ArrayList of Flights.
+     * @param flights (ArrayList)
      */
     public void setFlights(ArrayList<Flight> flights) {
         this.flights = flights;

@@ -60,7 +60,7 @@ public class PilotMenu extends Menu{
     
     /**
      * This method returns the PilotMenu visualisation on CLI.
-     * @return 
+     * @return (String)
      */
     @Override
     public String toString(){
@@ -89,7 +89,7 @@ public class PilotMenu extends Menu{
     
     /**
      * This method gets a user input for the Pilot's rating during its creation on addPilot method.
-     * @param name 
+     * @param name String
      */
     public void selectRating(String name){
         System.out.println("Please type the pilot Rating:\nAvailable ratings: ");

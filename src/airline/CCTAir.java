@@ -7,6 +7,7 @@ import airline.data.Data;
 /**
  *
  * @author rbsrafa
+ * 
  */
 public class CCTAir {   
 

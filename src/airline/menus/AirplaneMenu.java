@@ -17,6 +17,7 @@ public class AirplaneMenu extends Menu{
     
     /**
      * Build a Menu with options to manage Airplane objects
+     * @param data (Data)
      */
     public AirplaneMenu(Data data){
         super(data);

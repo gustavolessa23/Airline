@@ -1,11 +1,10 @@
 package airline.menus;
 
 import airline.data.Data;
-import airline.data.InputValidation;
+import airline.data.DataValidation;
 import java.util.Scanner;
 
 /**
- *
  * @author rbsrafa
  * @author gustavolessadublin
  */
@@ -13,7 +12,7 @@ public abstract class Menu {
     protected Data data;
     protected Scanner input;
     protected boolean exit;
-    protected InputValidation validate;
+    protected DataValidation validate;
     
     /**
      * @param data Initializes a new Menu
@@ -22,7 +21,7 @@ public abstract class Menu {
         this.data = data;
         input = new Scanner(System.in);
         exit = false;
-        validate = new InputValidation();
+        validate = new DataValidation();
     }
     
     public abstract void optionSelector();
