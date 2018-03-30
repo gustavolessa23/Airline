@@ -60,7 +60,7 @@ public class Flight {
                " Aircraft: "+this.aircraftAssigned.getMake()+" "+
                 this.aircraftAssigned.getModel()+"\n"+ 
                " Capacity: "+this.aircraftAssigned.capacity()+" seats\n"+
-               " Pilot Name: "+this.aircraftAssigned.getPilot()+ "\n"+  
+               " Pilot Name: "+this.aircraftAssigned.getPilotName()+ "\n"+  
                "+-------------------------------+\n";
     }
     

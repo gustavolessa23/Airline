@@ -5,6 +5,8 @@
  */
 package airline.data;
 
+import airline.aircrafts.Airplane;
+import airline.employees.Pilot;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +22,18 @@ public class InputValidation {
     
     public InputValidation(){
         
+    }
+    
+    /**
+     * This method checks if the given pilot is allowed to fly a given airplane.
+     * It checks the pilot availability and then its rating against the airplane capacicy.
+     * @param p Pilot to be checked.
+     * @param a Airplane to be checked.
+     * @return boolean
+     */
+    public boolean isAllowed(Pilot p, int capacity){
+        if(p.isAssigned() || p.getRating().getPassengers() < capacity) return false;
+        else return true;
     }
     
     public int checkForInt(Scanner input){

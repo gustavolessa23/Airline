@@ -105,7 +105,27 @@ public class AirplaneMenu extends Menu{
      * The designed Pilot is then assigned to the designed Airplane.
      * Any previous Pilot assigned will be lost.
      */
-    private void assignPilot() {
+//    private void assignPilot() {
+//        Pilot pilotToAssign = null;
+//        Airplane airplaneToAssign = null;
+//        System.out.println("Please type the pilot Id:");
+//        int pilotId = this.validate.checkForInt(input);
+//        
+//        for(Pilot p: super.data.getPilots()){
+//            if(pilotId == p.getId()) pilotToAssign = p;
+//        }
+//        if(pilotToAssign == null) System.out.println("\n*** Pilot not found! ***\n");
+//        
+//        airplaneToAssign = this.searchAirplane();
+//        
+//        airplaneToAssign.assignPilot(pilotToAssign);
+//        System.out.println(airplaneToAssign.toString());
+//    }
+    
+    /**
+     * This method validates the pilot availability for assignment and assign him to a airplane. 
+     */
+    private void assignPilot() {       
         Pilot pilotToAssign = null;
         Airplane airplaneToAssign = null;
         System.out.println("Please type the pilot Id:");
@@ -114,11 +134,23 @@ public class AirplaneMenu extends Menu{
         for(Pilot p: super.data.getPilots()){
             if(pilotId == p.getId()) pilotToAssign = p;
         }
-        if(pilotToAssign == null) System.out.println("\n*** Pilot not found! ***\n");
+        if(pilotToAssign == null) {
+            System.out.println("\n*** Pilot not found! ***");
+        }else{
+            airplaneToAssign = this.searchAirplane();       
         
-        airplaneToAssign = this.searchAirplane();
-        
-        airplaneToAssign.assignPilot(pilotToAssign);
-        System.out.println(airplaneToAssign.toString());
+            if(this.validate.isAllowed(pilotToAssign, airplaneToAssign.capacity())){
+                airplaneToAssign.getPilot().setAssigned(false);
+                airplaneToAssign.assignPilot(pilotToAssign);
+                pilotToAssign.setAssigned(true);
+                System.out.println(airplaneToAssign);
+            }else{
+                System.out.println("\n*** The selected pilot is not allowed to fly the selected airplane ***\n");
+                System.out.println("*** Please check the pilot's rating and/or availability. ***");
+            }
+        }
+           
     }
+    
+    
 }

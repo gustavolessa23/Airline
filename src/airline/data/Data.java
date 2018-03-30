@@ -5,6 +5,7 @@
  */
 package airline.data;
 
+import airline.data.InputValidation;
 import airline.aircrafts.Airplane;
 import airline.employees.Pilot;
 import airline.employees.Rating;
@@ -20,11 +21,13 @@ public class Data {
     private ArrayList<Pilot> pilots;   
     private ArrayList<Airplane> airplanes;
     private ArrayList<Flight> flights;
+    private InputValidation validation;
     
     /**
      * This constructor creates a new Data object that contains the ArrayLists of pilots, airplanes and flights.
      */
     public Data(){
+        this.validation = new InputValidation();
         this.pilots = this.generatePilots();
         this.airplanes = this.generateAirplanes();
         this.flights = this.generateFlights();
@@ -55,15 +58,20 @@ public class Data {
         String[] make = {"Boeing", "Embraer", "Airbus", "Bombardier"};
         String[] model = {"737", "747", "A318", "A380", 
             "Challenger 300", "Challenger 600", "E-175", "E-195"};
-        int[] capacity = {400, 300, 200, 100};
+        int[] capacities = {400, 300, 200, 100};
         Random rand = new Random(); 
         
         for(int i = 0; i < pilots.size(); i++){
-            Airplane a = new Airplane(make[rand.nextInt(make.length)], 
-                    model[rand.nextInt(model.length)],
-                    capacity[rand.nextInt(capacity.length)], 
-                    pilots.get(i));
-            airplanes.add(a);
+            Pilot p = pilots.get(rand.nextInt(pilots.size()));
+            int capacity = capacities[rand.nextInt(capacities.length)];
+            
+            if(this.validation.isAllowed(p, capacity)){
+                Airplane a = new Airplane(make[rand.nextInt(make.length)], 
+                                      model[rand.nextInt(model.length)],
+                                      capacity, p);
+                p.setAssigned(true);
+                airplanes.add(a);
+            }else i--;  
         }
         return airplanes;
     }

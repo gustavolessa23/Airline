@@ -90,12 +90,16 @@ public abstract class Aircraft {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+    
+    public Pilot getPilot(){
+        return this.pilot;
+    }
 
     /**
      * Gets Aircraft pilot's name value
      * @return return a String with the Aircraft pilot's name value
      */
-    public String getPilot() {
+    public String getPilotName() {
         return pilot.getName();
     }
 
