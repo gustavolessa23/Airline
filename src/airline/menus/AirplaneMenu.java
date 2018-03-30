@@ -36,14 +36,17 @@ public class AirplaneMenu extends Menu{
             case 2:
                 Airplane aId = this.searchAirplane();
                 System.out.println(aId);
-                break;
+                break;            
             case 3:
-                this.assignPilot();
+                this.addAirplane();
                 break;
             case 4:
-                this.returnToMainMenu();
+                this.assignPilot();
                 break;
             case 5:
+                this.returnToMainMenu();
+                break;
+            case 6:
                 this.exitProgram();
                 break;
             default:
@@ -65,9 +68,10 @@ public class AirplaneMenu extends Menu{
             "+--------------------------+\n" +
             "| 1 - Show Airplane list   |\n" +
             "| 2 - Find Airplane by ID  |\n" +
-            "| 3 - Assign Pilot by ID   |\n" +
-            "| 4 - Return to Main Menu  |\n" + 
-            "| 5 - Exit Program         |\n" + 
+            "| 3 - Add New Airplane     |\n" +
+            "| 4 - Assign Pilot by ID   |\n" +
+            "| 5 - Return to Main Menu  |\n" + 
+            "| 6 - Exit Program         |\n" + 
             "+--------------------------+\n" +
             "Please select an option: ";
     }
@@ -96,6 +100,21 @@ public class AirplaneMenu extends Menu{
         }
         if(searchAirplaneId == null) System.out.println("\n*** Airplane not found! ***\n"); 
         return searchAirplaneId;
+    }
+    
+    
+    public void addAirplane(){
+        input.nextLine();        
+        System.out.println("Please type the airplane make:");
+        String make = input.nextLine();        
+        System.out.println("Please type the airplane model:");
+        String model = input.nextLine();        
+        System.out.println("Please type the airplane capacity:");
+        int capacity = this.validate.checkForInt(input);        
+        System.out.println("Please select the pilot id:");
+        int option = this.validate.checkForInt(input);
+        Pilot pilot = super.data.getPilots().get(option);
+        super.data.getAirplanes().add(new Airplane(make, model, capacity, pilot));
     }
 
     /**
