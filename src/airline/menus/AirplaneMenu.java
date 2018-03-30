@@ -27,6 +27,10 @@ public class AirplaneMenu extends Menu{
         }
     }
     
+    /**
+     * This method uses a Scanner variable to receive a int value,
+     * this variable is then used to select on of the menu options.
+     */
     @Override
     public void optionSelector() {
         int option = this.validate.checkForInt(input);
@@ -87,8 +91,8 @@ public class AirplaneMenu extends Menu{
     }
 
     /**
-     * Search an Airplane object using the id reference.
-     * A valid id must be input by the user
+     * Search an Airplane object using the id reference,
+     * a valid id must be input by the user.
      * @return Returns Airplane object details
      */
     private Airplane searchAirplane() {
@@ -104,8 +108,8 @@ public class AirplaneMenu extends Menu{
     }
     
     /**
-     * This method collect users entry to add a new Airplane object.
-     * A valid Pilot object must be assigned.
+     * This method collect users entry to add a new Airplane object,
+     * a valid Pilot object must be assigned.
      */
     public void addAirplane(){
         input.nextLine();        
@@ -124,12 +128,8 @@ public class AirplaneMenu extends Menu{
     }
     
     /**
-     * This method searches a Pilot object using the id reference provided.
-     * Also searches an Airplane object using the id reference provided.
-     * A valid id must be input by the user in both cases.
-     * The Pilot availability is validated, if free
-     * the Pilot is assigned to the designated Airplane.
-     * Any previous Pilot data assigned will be lost.
+     * This method assigns a Pilot object to the designated Airplane object,
+     * any previous Pilot data assigned will be lost.
      */
     private void assignPilot() {       
         Pilot pilotToAssign = null;
