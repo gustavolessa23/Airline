@@ -28,7 +28,6 @@ public class Airplane extends Aircraft {
     
     /**
      * Display values stored on an Airplane object.
-     * Attributes stored id, make, model, capacity and pilot name.
      * @return a String in a text box format 
      * representing the menu options for the user.
      */
