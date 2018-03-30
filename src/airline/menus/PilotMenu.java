@@ -89,8 +89,7 @@ public class PilotMenu extends Menu{
     
     /**
      * This method gets a user input for the Pilot's rating during its creation on addPilot method.
-     * @param name
-     * @param p 
+     * @param name 
      */
     public void selectRating(String name){
         System.out.println("Please type the pilot Rating:\nAvailable ratings: ");

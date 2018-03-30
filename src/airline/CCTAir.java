@@ -8,8 +8,7 @@ import airline.data.Data;
  *
  * @author rbsrafa
  */
-public class CCTAir {
-    
+public class CCTAir {   
 
     /**
      * @param args the command line arguments
