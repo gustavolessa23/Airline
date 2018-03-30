@@ -123,7 +123,7 @@ public class AirplaneMenu extends Menu{
 //    }
     
     /**
-     * This method validates the pilot availability for assignment and assign him to a airplane. 
+     * This method validates the pilot availability for assignment and assigns it to an airplane. 
      */
     private void assignPilot() {       
         Pilot pilotToAssign = null;
