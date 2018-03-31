@@ -9,11 +9,11 @@ import airline.data.Data;
 public class MainMenu extends Menu{
     
     /**
-     * @param data This method initialises a new MainMenu instance.
+     * This method initialises a new MainMenu instance.
+     * @param data (Data)
      */
     public MainMenu(Data data){
-        super(data); 
-        
+        super(data);       
         while(!exit){
             this.displayMenu(this);
             this.optionSelector();
@@ -21,7 +21,8 @@ public class MainMenu extends Menu{
     }
     
     /**
-     * @return This method prints the MainMenu options on CLI.
+     * This method prints the MainMenu options on CLI.
+     * @return A formatted String with the menu options
      */
     @Override
     public String toString() {

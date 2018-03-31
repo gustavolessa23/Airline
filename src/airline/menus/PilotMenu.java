@@ -14,7 +14,7 @@ public class PilotMenu extends Menu{
     
     /**
      * This constructor creates a new PilotMenu object.
-     * @param data An object that contains three ArrayLists.
+     * @param data (Data)
      */
     public PilotMenu(Data data){
         super(data);
@@ -52,6 +52,9 @@ public class PilotMenu extends Menu{
         }
     }
     
+    /**
+     * This method prints the pilot assignment status on CLI.
+     */
     public void printPilotStatus(){
         for(Pilot p: super.data.getPilots()){
             System.out.println(p + " " + p.isAssigned());

@@ -26,6 +26,10 @@ public abstract class Menu {
     
     public abstract void optionSelector();
     
+    /**
+     * This method displays the menu on CLI.
+     * @param menu (String)
+     */
     public void displayMenu(Menu menu){
         System.out.println(menu);
     }
