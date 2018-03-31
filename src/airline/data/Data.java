@@ -19,7 +19,7 @@ public class Data {
     private DataValidation validation;
     
     /**
-     * This constructor creates a new Data object that contains the ArrayLists of pilots, airplanes and flights.
+     * This constructor creates a new Data object that contains ArrayLists of pilots, airplanes and flights objects.
      */
     public Data(){
         this.validation = new DataValidation();
@@ -30,7 +30,7 @@ public class Data {
     
     /**
      * This method generates and returns new ArrayList of pilots.
-     * @return pilots
+     * @return An ArrayList of pilots objects.
      */
     private ArrayList<Pilot> generatePilots(){
         ArrayList<Pilot> pilots = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Data {
     
     /**
      * This method generates and returns a new ArrayList of airplanes.
-     * @return airplanes
+     * @return An ArrayList of airplane objects.
      */
     private ArrayList<Airplane> generateAirplanes(){
         ArrayList<Airplane> airplanes = new ArrayList<>();
@@ -73,7 +73,7 @@ public class Data {
     
     /**
      * This method generates and returns a new ArrayList of flights.
-     * @return flights (ArrayList)
+     * @return An ArrayList of flight objects.
      */
     private ArrayList<Flight> generateFlights(){
         ArrayList<Flight> flights = new ArrayList<>();
@@ -100,7 +100,7 @@ public class Data {
 
     /**
      * This method returns a ArrayList of Pilots.
-     * @return pilots (ArrayList) a ArrayList of pilots
+     * @return An ArrayList of pilot objects.
      */
     public ArrayList<Pilot> getPilots() {
         return pilots;
@@ -116,7 +116,7 @@ public class Data {
 
     /**
      * This method returns a ArrayList of Airplanes.
-     * @return (ArrayList) a ArrayList of airplanes
+     * @return An ArrayList of airplane objects.
      */
     public ArrayList<Airplane> getAirplanes() {
         return airplanes;
@@ -132,7 +132,7 @@ public class Data {
 
     /**
      * This method returns a ArrayList of Flights.
-     * @return (ArrayList) ArrayList of flights
+     * @return An ArrayList of flight objects.
      */
     public ArrayList<Flight> getFlights() {
         return flights;

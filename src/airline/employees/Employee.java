@@ -19,21 +19,24 @@ public abstract class Employee {
     }
 
     /**
-     * @return This method returns the Employee's id field.
+     * This method returns the Employee's id field.
+     * @return The employee's id.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * @return This method returns the Employee's name.
+     * This method returns the Employee's name.
+     * @return The employee's name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * @param name This method sets the Employee's name.
+     * This method sets the Employee's name.
+     * @param name (String)
      */
     public void setName(String name) {
         this.name = name;
