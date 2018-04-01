@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package airline.flights;
 
 /**
- *
- * @author gustavolessa1
+ * This enum represents the cities where CCT Air operates and methods to retrieve
+ * lists of options and values.
+ * @author Gustavo Lessa
  */
 public enum Location {
     RIO_DE_JANEIRO("Rio de Janeiro"), DUBLIN("Dublin"), LONDON("London"), PARIS("Paris"), NEW_YORK("New York"), SAO_PAULO("São Paulo"), AMSTERDAM("Amsterdam"), TOKYO("Tokyo");
@@ -18,24 +15,32 @@ public enum Location {
 
     /**
      * This constructor creates a new Location.
-     * 
-     * @param city 
+     * @param city (String) - name of the city.
      */
     Location(String city){
         this.city = city;
     }
 
     /**
-     * @return This method returns the number of passengers allowance according to the rating label.
+     * This method is the accessor for the String city variable.
+     * @return A String of the city's name.
      */
     public String getName(){
         return this.city;
     }
     
+    /**
+     * This static method is the accessor of the array of Location options. 
+     * @return (Location[]) - An array of Location objects.
+     */
     public static Location[] getAllOptions(){
         return cities;
     }
     
+    /**
+     * This method returns an array of city names.
+     * @return (String[]) - An array of String objects.
+     */
     public static String[] getAllNames(){
         String[] names = new String[cities.length];
         for(int x = 0; x < names.length; x++){
