@@ -15,7 +15,8 @@ public abstract class Menu {
     protected DataValidation validate;
     
     /**
-     * @param data Initializes a new Menu
+     * Initializes a new Menu
+     * @param data (Data)
      */
     public Menu(Data data){
         this.data = data;
@@ -24,6 +25,9 @@ public abstract class Menu {
         validate = new DataValidation();
     }
     
+    /**
+     * This method will implement the menu options logic on children classes.
+     */
     public abstract void optionSelector();
     
     /**
