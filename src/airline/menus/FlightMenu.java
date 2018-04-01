@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * This class is responsible for the Flight menu object, containing the methods
  *  to perform the required actions regarding the company's flights.
- * @author gustavolessadublin
+ * @author Gustavo Lessa
  */
 public class FlightMenu extends Menu{
     private DateFormat formatTime = new SimpleDateFormat("HH:mm");

@@ -9,7 +9,7 @@ import airline.aircrafts.Aircraft;
 
 /**
  * Each instance of this class represents a flight of CCT Air airline company.
- * @author gustavolessadublin
+ * @author Gustavo Lessa
  */
 public class Flight {
     private final int id;

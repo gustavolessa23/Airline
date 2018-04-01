@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *
+ * This class stores information about pilots, airplanes and flights in ArrayList 
+ * and generates initial data.
  * @author rbsrafa
+ * @author Gustavo Lessa
  */
 public class Data {    
     private ArrayList<Pilot> pilots;   

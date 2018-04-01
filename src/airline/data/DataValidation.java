@@ -15,8 +15,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * 
- * @author gustavolessa1
+ * This class contains methods used to validate user input such as date, time, 
+ * int, int with defined range, compare cities and check pilot availability and rating.
+ * @author Gustavo Lessa
+ * @author Rafael Barros
  */
 public class DataValidation {
     
@@ -118,7 +120,6 @@ public class DataValidation {
     }
     
     /**
-     * /**
      * Checks input line for a date formatted as HH:mm.
      * If not correct, the method calls itself until the user input is accepted
      * @param input (Scanner)
