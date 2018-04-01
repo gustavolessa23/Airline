@@ -7,16 +7,16 @@ import airline.data.Data;
 /**
  *
  * @author rbsrafa
- * 
+ *
  */
-public class CCTAir {   
+public class CCTAir {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Data data = new Data();
-        new MainMenu(data);    
+        new MainMenu(data);   
     }
-    
+
 }
